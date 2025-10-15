@@ -29,4 +29,12 @@ describe("add() function tests", () => {
     const result = add("//;\n1;2;3");
     expect(result).toBe(6);
   });
+
+  test("should throw error on negative number", () => {
+    expect(() => add("//;1;-2;3")).toThrow("negative numbers not allowed < -2 >");
+  });
+
+  test("should throw error on multiple negative numbers", () => {
+    expect(() => add("//;1;-2;-4,3")).toThrow("negative numbers not allowed < -2,-4 >");
+  });
 });
