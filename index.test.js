@@ -14,4 +14,14 @@ describe("add() function tests", () => {
     const result = add("1,2");
     expect(result).toBe(3);
   });
+
+  test("should return 6 on string 1,2,3", () => {
+    const result = add("1,2,3");
+    expect(result).toBe(6);
+  });
+
+  test("should return 6 on string 1\\n2,3", () => {
+    const result = add("1\n2,3");
+    expect(result).toBe(6);
+  });
 });

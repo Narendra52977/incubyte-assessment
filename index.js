@@ -1,5 +1,6 @@
 function add(expression) {
-  let numbers = expression.split(",");
+  const delimeters = /[,\n]/;
+  let numbers = expression.split(delimeters);
   return numbers.reduce((acc, num) => parseInt(acc) + (parseInt(num) || 0), 0);
 }
 
