@@ -37,4 +37,20 @@ describe("add() function tests", () => {
   test("should throw error on multiple negative numbers", () => {
     expect(() => add("//;1;-2;-4,3")).toThrow("negative numbers not allowed < -2,-4 >");
   });
+
+  test("should return 4 on string //;\\n1;2000;3 by ignoring numbers above 1000", () => {
+    expect(add("//;\n1;2000;3")).toBe(4);
+  });
+
+  test("Delimiters of any length: should return 6 on string //[***]\n1***2***3 ", () => {
+    expect(add("//[***]\n1***2***3")).toBe(6);
+  });
+
+  test(" Allow multiple delimiters: should return 6 on string //[*][%]\n1*2%3 ", () => {
+    expect(add("//[*][%]\n1*2%3")).toBe(6);
+  });
+
+  test("Allow multiple delimiters of any length : should return 6 on string //[**][%a]\n1**2%a3 ", () => {
+    expect(add("//[**][%a]\n1**2%a3")).toBe(6);
+  });
 });
