@@ -42,15 +42,15 @@ describe("add() function tests", () => {
     expect(add("//;\n1;2000;3")).toBe(4);
   });
 
-  test("Delimiters of any length: should return 6 on string //[***]\n1***2***3 ", () => {
+  test("Delimiters of any length: should return 6 on string //[***]\\n1***2***3 ", () => {
     expect(add("//[***]\n1***2***3")).toBe(6);
   });
 
-  test(" Allow multiple delimiters: should return 6 on string //[*][%]\n1*2%3 ", () => {
+  test(" Allow multiple delimiters: should return 6 on string //[*][%]\\n1*2%3 ", () => {
     expect(add("//[*][%]\n1*2%3")).toBe(6);
   });
 
-  test("Allow multiple delimiters of any length : should return 6 on string //[**][%a]\n1**2%a3 ", () => {
+  test("Allow multiple delimiters of any length : should return 6 on string //[**][%a]\\n1**2%a3 ", () => {
     expect(add("//[**][%a]\n1**2%a3")).toBe(6);
   });
 });
